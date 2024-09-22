@@ -7,7 +7,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# Function to establish a connection to the MySQL DB
+# Function to establish a connection to the MySQL Database
 def get_db_connection():
     host = os.environ.get('DB_HOST')
     user = os.environ.get('DB_USER')
