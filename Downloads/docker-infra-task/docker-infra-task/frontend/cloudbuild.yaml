@@ -1,0 +1,10 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/woven-patrol-436318-i1/my-frontend', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/woven-patrol-436318-i1/my-frontend']
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    args: ['gcloud', 'run', 'deploy', 'my-frontend', '--image', 'gcr.io/woven-patrol-436318-i1/my-frontend', '--platform', 'managed', '--region', 'us-central1', '--allow-unauthenticated']
+
+images:
+  - 'gcr.io/woven-patrol-436318-i1/my-frontend'
